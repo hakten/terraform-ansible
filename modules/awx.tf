@@ -9,7 +9,7 @@ resource "aws_instance" "awx" {
   iam_instance_profile = "${aws_iam_instance_profile.tower_profile.name}"
 
   provisioner "file" {
-    source      = "./modules/awx"
+    source      = "./module/awx"
     destination = "/tmp/"
 
     connection {

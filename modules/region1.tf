@@ -1,14 +1,14 @@
 
-resource "aws_instance" "worker2" {
-  provider		      = "aws.region2"
+resource "aws_instance" "worker1" {
+  provider		      = "aws.region1"
   instance_type               = "${var.instance_type}"
-  ami                         = "${data.aws_ami.centos-region2.id}"
+  ami                         = "${data.aws_ami.centos-region1.id}"
   associate_public_ip_address = "true"
   key_name                    = "${var.key_name}"
   security_groups             = ["allow_ssh_and_awx"]
   
   tags = {
-    Name = "Worker 3"
+    Name = "Worker 2"
   } 
   
   
@@ -26,7 +26,7 @@ resource "aws_instance" "worker2" {
 
 
   provisioner "file" {
-    source      = "./modules/ansible"
+    source      = "./module/ansible"
     destination = "/tmp/ansible"
 
     connection {
@@ -73,11 +73,11 @@ resource "aws_instance" "worker2" {
 
 
 
-resource "aws_security_group" "allow_ssh_and_awx_region2" {
-  provider	=	"aws.region2"
+resource "aws_security_group" "allow_ssh_and_awx_region1" {
+  provider	=	"aws.region1"
   name        = "allow_ssh_and_awx"
   description = "Allow SSH and awx"
-  vpc_id      = "${var.region2_vpc_id}"
+  vpc_id      = "${var.region1_vpc_id}"
 
   ingress {
     from_port   = 22
@@ -100,9 +100,9 @@ resource "aws_security_group" "allow_ssh_and_awx_region2" {
   }
 }
 
-# Creates key for region2   
-resource "aws_key_pair" "region2" {
-  provider	=	"aws.region2"
+# Creates key for region1   
+resource "aws_key_pair" "region1" {
+  provider	=	"aws.region1"
   key_name   = "ansible"
   public_key = "${file("~/.ssh/id_rsa.pub")}"
 }

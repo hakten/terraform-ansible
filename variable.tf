@@ -1,0 +1,12 @@
+variable "instance_type" {}
+variable "key_name" {}
+variable "user" {}
+variable "ssh_key_location" {}
+variable "zone_id" {}
+variable "domain" {}
+variable "region_tower" {}
+variable "region1" {}
+variable "region2" {}
+variable "region_tower_vpc_id" {}
+variable "region1_vpc_id" {}
+variable "region2_vpc_id" {}

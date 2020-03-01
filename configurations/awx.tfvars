@@ -10,10 +10,10 @@ s3_tfstate_file                 =   	"tower.tfstate"
 region_tower_vpc_id		    	=	"vpc-2f332c49"
 
 # Change to second region to work, in my case virginia
-region1_vpc_id		    	        =	"vpc-092207b35201fa7bc"
+region1_vpc_id		    	    =	"vpc-092207b35201fa7bc"
 
 # Change to second region to work, in my case ohio
-region2_vpc_id		    	        =	"vpc-0a4a1235c26640725"
+region2_vpc_id		    	    =	"vpc-0a4a1235c26640725"
 
 
 zone_id			        =	"ZLLTFA4ZO6PR5" 

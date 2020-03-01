@@ -4,7 +4,7 @@ module "awx" {
     region2      = "aws.region1"
     region3      = "aws.region2"
   }
-  source               = "./modules"
+  source               = "./module"
   user                 = "${var.user}"
   domain               = "${var.domain}"
   region_tower_vpc_id  = "${var.region_tower_vpc_id}"
